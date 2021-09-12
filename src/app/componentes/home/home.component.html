@@ -1,0 +1,5 @@
+<div *ngIf="authService.isLoggedIn">
+    <h1>Info del Usuario</h1>
+    <h2>{{authService.getUser.email}}</h2>
+</div>
+<app-chat></app-chat>

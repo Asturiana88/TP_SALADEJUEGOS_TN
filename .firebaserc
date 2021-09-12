@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "sala-de-juegos-db": {
+      "hosting": {
+        "sala-de-juegos": [
+          "sala-de-juegos-db"
+        ]
+      }
+    }
+  }
+}

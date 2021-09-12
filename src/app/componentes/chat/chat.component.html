@@ -1,0 +1,16 @@
+<div *ngIf="authService.isLoggedIn">
+    <div class="mt-4">
+        <div *ngFor="let _mensaje of mensajes">
+            <span>
+                {{_mensaje.usuario.email}}:
+            </span>
+            <span> {{_mensaje.mensaje}}</span>
+            <span> {{_mensaje.hora}}</span>
+        </div>
+    </div>
+
+    <div class="display-flex flex-direction-row">
+        <input type="text" [(ngModel)]="mensaje">
+        <button class="btn btn-primary" (click)="enviarMensaje()">Enviar</button>
+    </div>
+</div>
