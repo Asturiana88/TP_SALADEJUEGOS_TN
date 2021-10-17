@@ -1,7 +1,7 @@
 <nav class="site-header navbar-expand-md navbar-dark bg-dark mb-4">
     <div class="container d-flex flex-column flex-md-row justify-content-between">
-        <a class="nav-item nav-link py-2" routerLink="quiensoy">Quien Soy</a>
         <a class="nav-item nav-link py-2" routerLink="home">Home</a>
+        <a class="nav-item nav-link py-2" routerLink="quiensoy">Quien Soy</a>
         <a class="nav-item nav-link py-2" *ngIf="!authService.isLoggedIn"
             routerLink="login">Login</a>
 

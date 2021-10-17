@@ -14,12 +14,12 @@ export class ChatComponent implements OnInit {
   chatService: ChatService;
   authService: AuthService;
   mensaje!: string;
-  mensajes: any = [];
+  mensajes: Mensaje[] = [];
 
   constructor(private chat: ChatService, private auth: AuthService) {
     this.chatService = chat;
     this.authService = auth;
-    this.mensajes = chat.GetMensajes().subscribe((data: [string]) => this.mensajes = data.reverse());
+    this.mensajes = chat.GetMensajes().subscribe((data: Mensaje[]) => this.mensajes = data.reverse());
   }
 
   enviarMensaje() {

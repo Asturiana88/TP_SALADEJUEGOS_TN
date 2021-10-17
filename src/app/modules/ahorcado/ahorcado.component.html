@@ -7,7 +7,12 @@
             <div class="d-flex">
                 <h1 *ngFor="let letra of letrasPalabra()" class="mx-3"> 
                     <span *ngIf="letrasElegidas.includes(letra); else hidden"> {{letra}} </span>
-                    <ng-template #hidden> __ </ng-template>
+                    <ng-template #hidden>
+                        <span *ngIf="!juegoTerminado; else respuesta"> __ </span>
+                    </ng-template>
+                    <ng-template #respuesta>
+                        <span class="text-success"> {{letra}} </span>
+                    </ng-template>
                 </h1>
             </div>
         </div>

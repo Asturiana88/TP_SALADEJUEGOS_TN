@@ -128,7 +128,7 @@ hablar
 estrategia
 acumulativo
 operaciones
-borrador 
+borrador
 brincar
 escribir
 hallar
@@ -269,7 +269,7 @@ variedad
 engrandecer
 objetivo
 especialización
-vaselina 
+vaselina
 verificar
 víbora
 obsequiar
@@ -386,7 +386,6 @@ personificación
 convivencia
 decimales
 símil
-Constitución Política
 simplificación
 competencia
 honrar
