@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'registrarse', component: RegistroComponent },
   { path: 'ahorcado', loadChildren: () => import("./modules/ahorcado/ahorcado.module").then(md => md.AhorcadoModule) },
   { path: 'mayor-menor', loadChildren: () => import("./modules/mayor-menor/mayor-menor.module").then(md => md.MayorMenorModule) },
+  { path: 'preguntados', loadChildren: () => import("./modules/preguntados/preguntados.module").then(md => md.PreguntadosModule) },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

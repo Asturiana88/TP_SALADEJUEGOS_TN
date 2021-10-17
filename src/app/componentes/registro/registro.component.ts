@@ -24,8 +24,6 @@ export class RegistroComponent implements OnInit {
     this.authService?.SignUp(this.email, this.password)
       .then(res => console.log(res))
       .catch((error: any) => {
-        console.log(error)
-        console.log(typeof error)
         this.singUpError = error;
       })
   }

@@ -47,7 +47,6 @@ export class AuthService {
         });
         this.SetUserData(result.user, 'sign in');
       }).catch((error: any) => {
-        console.log(error);
         this.singInError = error
       })
   }
@@ -121,9 +120,6 @@ export class AuthService {
       this.SetUserData(JSON.parse(localStorage.getItem('user') || ''), 'sign out');
       localStorage.removeItem('user');
       this.router.navigate(['login']);
-      console.log(
-        this.isLoggedIn
-      );
     })
   }
 

@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-12 mb-5">
+        <h1>
+            <span class="text-primary">Preguntados:</span> adivina la raza
+        </h1>
+    </div>
+    <ng-container *ngIf="pregunta">
+        <div class="col-6">
+            <img src="{{pregunta.url}}" width="100%" height="auto" alt="">
+        </div>
+
+        <div class="col-6">
+            <div class="p-5 shadow">
+                <h2>Cual es la raza?</h2>
+
+                <ul *ngIf="opciones | async as opcionesData">
+                    <li *ngFor="let opcion of opcionesData">
+                        <button class="btn btn-secondary my-2" (click)="adivinar(opcion.raza)"> {{opcion.raza}} </button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="mt-5 p-5 shadow" *ngIf="resultado">
+                <h3> {{resultado}} </h3>
+                <button class="btn btn-primary" (click)="siguiente()">
+                    Siguiente
+                </button>
+            </div>
+        </div>
+    </ng-container>
+</div>

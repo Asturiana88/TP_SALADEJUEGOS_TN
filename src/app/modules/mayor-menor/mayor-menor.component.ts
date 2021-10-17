@@ -63,7 +63,6 @@ export class MayorMenorComponent implements OnInit {
     )
 
     this.mazo = this.shuffle(mazoSinMezclar)
-    console.log(this.mazo)
   }
 
   proximaCarta(guess: '+' | '-'){
@@ -78,7 +77,6 @@ export class MayorMenorComponent implements OnInit {
       this.resultado = "Las cartas valian lo mismo es un EMPATE!"
     } else if (diff > 0 && guess == '+') {
       this.resultado = "La carta era mayor Ganaste!"
-      console.log("CARTA ERA MAYOR GANA")
     } else if (diff < 0 && guess == '-') {
       this.resultado = "La carta era menor Ganaste!"
     } else if (diff < 0 && guess == '+') {

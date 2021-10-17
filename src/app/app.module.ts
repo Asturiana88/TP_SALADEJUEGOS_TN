@@ -22,7 +22,7 @@ import { ChatComponent } from './componentes/chat/chat.component';
     QuienSoyComponent,
     MenuPrincipalComponent,
     RegistroComponent,
-    ChatComponent
+    ChatComponent,
   ],
   imports: [
     BrowserModule,
