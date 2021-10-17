@@ -25,9 +25,8 @@ export class LoginComponent implements OnInit {
   }
 
   loggedIn() {
+    this.email && this.password &&
     this.authService?.SignIn(this.email, this.password)
-      .then(res => console.log(res))
-      .catch(err => console.log(err))
   }
 
 }

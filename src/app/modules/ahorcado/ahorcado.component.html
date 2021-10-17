@@ -1,0 +1,32 @@
+<ng-container *ngIf="palabra">
+    <ng-container *ngIf="juegoTerminado">
+        <h1> Juego Terminado </h1>
+    </ng-container>
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="d-flex">
+                <h1 *ngFor="let letra of letrasPalabra()" class="mx-3"> 
+                    <span *ngIf="letrasElegidas.includes(letra); else hidden"> {{letra}} </span>
+                    <ng-template #hidden> __ </ng-template>
+                </h1>
+            </div>
+        </div>
+        <div class="col-12 mt-4">
+            <h3>Intentos: <span class="text-primary">{{intentos}}</span></h3>
+            <span class="letra-elejida" [class.correcta]="estaEnLaPalabra(letra)" *ngFor="let letra of letrasElegidas">
+                {{letra}}
+            </span>
+        </div>
+        <div class="col-12 mt-5">
+            <div class="char-container">
+                <span [class.disabled]="letrasElegidas.includes(letra)"
+                    class="char"
+                    (click)="elegirLetra(letra)"
+                    *ngFor="let letra of abecedario"
+                >
+                    {{letra}}
+                </span>
+            </div>
+        </div>
+    </div>
+</ng-container>

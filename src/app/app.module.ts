@@ -30,7 +30,6 @@ import { ChatComponent } from './componentes/chat/chat.component';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     FormsModule
-
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]

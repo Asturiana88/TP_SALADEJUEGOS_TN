@@ -19,7 +19,7 @@ export class ChatComponent implements OnInit {
   constructor(private chat: ChatService, private auth: AuthService) {
     this.chatService = chat;
     this.authService = auth;
-    this.mensajes = chat.GetMensajes().subscribe((data: any) => this.mensajes = data);
+    this.mensajes = chat.GetMensajes().subscribe((data: [string]) => this.mensajes = data.reverse());
   }
 
   enviarMensaje() {

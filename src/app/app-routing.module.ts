@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'quiensoy', component: QuienSoyComponent },
   { path: 'registrarse', component: RegistroComponent },
+  { path: 'ahorcado', loadChildren: () => import("./modules/ahorcado/ahorcado.module").then(md => md.AhorcadoModule) },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
