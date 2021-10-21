@@ -1,0 +1,48 @@
+td {
+  width: 40px;
+  height: 40px;
+  border: 1px solid black;
+}
+.food {
+  position: relative;
+}
+
+.food::after {
+  content: "";
+  position: absolute;
+  left: 25%;
+  top: 25%;
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+  background-color: red;
+}
+
+.head {
+  position: relative;
+}
+.head::after {
+  content: "";
+  position: absolute;
+  left: 5%;
+  top: 5%;
+  width: 85%;
+  height: 85%;
+  border-radius: 50%;
+  background-color: coral;
+}
+
+.snake {
+  position: relative;
+}
+
+.snake::after {
+  content: "";
+  position: absolute;
+  left: 5%;
+  top: 5%;
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+  background-color: black;
+}
