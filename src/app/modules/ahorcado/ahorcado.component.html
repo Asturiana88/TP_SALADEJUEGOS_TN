@@ -1,7 +1,17 @@
 <ng-container *ngIf="palabra">
-    <ng-container *ngIf="juegoTerminado">
-        <h1> Juego Terminado </h1>
-    </ng-container>
+    <div class="row">
+        <div class="col-12">
+            <ng-container *ngIf="juegoTerminado">
+                <h1> Juego Terminado </h1>
+            </ng-container>
+        </div>
+
+        <div class="col-12">
+            <h3>
+                Puntuacion: <span class="text-primary">{{intentos * 5}}</span>
+            </h3>
+        </div>
+    </div>
     <div class="row mt-5">
         <div class="col-12">
             <div class="d-flex">
@@ -33,5 +43,10 @@
                 </span>
             </div>
         </div>
+
+        <div class="col-12">
+            <app-tabla-puntuacion [juego]="'ahorcado'"></app-tabla-puntuacion>
+        </div>
     </div>
+    <app-form *ngIf="openForm" (closeHandler)="handleClose($event)" [juego]="'ahorcado'"></app-form>
 </ng-container>

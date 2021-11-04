@@ -23,7 +23,7 @@ export class SnakeComponent implements OnInit {
 
   ngOnInit(){
   }
-
+  openForm = false;
   private readonly initialSize = 3;
   private readonly initialPos = [5,5];
   private readonly intervalo = 150;
@@ -49,6 +49,15 @@ export class SnakeComponent implements OnInit {
     if ( direction ) {
       this.direction = direction;
       this.directionClass = event.key
+      this.forcePosition();
+    }
+  }
+
+  changeDirection(direction:string){
+    const _direction = DIRECTION[direction] as number[]
+    if ( _direction ) {
+      this.direction = _direction;
+      this.directionClass = direction
       this.forcePosition();
     }
   }
@@ -149,6 +158,7 @@ export class SnakeComponent implements OnInit {
     if(_this.lost()){
       _this.stop();
       _this.perdio = true;
+      _this.openForm = true;
       _this.puntajeService.CreateScore(_this.puntos, 'snake')
     } else {
       _this.drawGrid();
@@ -174,5 +184,8 @@ export class SnakeComponent implements OnInit {
     this.generateFood();
   }
 
+  handleClose(_:any){
+    this.openForm = false
+  }
 
 }

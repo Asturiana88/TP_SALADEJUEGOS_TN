@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PuntajeService } from 'src/app/servicios/puntaje.service';
 
 interface Carta {
   figura: string;
@@ -20,8 +21,14 @@ export class MayorMenorComponent implements OnInit {
   cartaAnterior?: Carta;
   resultado?: string;
   juegoTerminado = false;
+  puntos: number = 0
+  openForm= false;
 
-  constructor() { }
+  handleClose(_:any){
+    this.openForm = false
+  }
+
+  constructor(private puntajeService: PuntajeService) { }
 
   ngOnInit(): void {
     this.generarMazo()
@@ -77,16 +84,23 @@ export class MayorMenorComponent implements OnInit {
       this.resultado = "Las cartas valian lo mismo es un EMPATE!"
     } else if (diff > 0 && guess == '+') {
       this.resultado = "La carta era mayor Ganaste!"
+      this.puntos += 1;
     } else if (diff < 0 && guess == '-') {
       this.resultado = "La carta era menor Ganaste!"
+      this.puntos += 1;
     } else if (diff < 0 && guess == '+') {
       this.resultado = "La carta era menor Perdiste :("
+      this.puntajeService.CreateScore(this.puntos, 'mayor_menor')
+      this.puntos = 0;
     } else if (diff > 0 && guess == '-') {
       this.resultado = "La carta era mayor Perdiste :("
+      this.puntajeService.CreateScore(this.puntos, 'mayor_menor')
+      this.puntos = 0;
     }
 
     if (this.mazo.length == 0) {
       this.juegoTerminado = true;
+      this.openForm=true;
     }
 
   }

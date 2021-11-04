@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { PerroRandomService } from 'src/app/servicios/perro-random.service';
 import {  take} from "rxjs/operators";
+import { PuntajeService } from 'src/app/servicios/puntaje.service';
 
 
 @Component({
@@ -14,8 +15,16 @@ export class PreguntadosComponent implements OnInit {
   opciones = new BehaviorSubject<any[]>([])
   pregunta!: any;
   resultado?: string;
+  puntos: number = 0;
+  openForm = false
 
-  constructor(private dogBreedService: PerroRandomService) {
+  handleClose(_:any){
+    this.openForm = false
+  }
+
+  constructor(
+    private puntajeService: PuntajeService,
+    private dogBreedService: PerroRandomService) {
     this.getOpciones()
   }
 
@@ -70,8 +79,12 @@ export class PreguntadosComponent implements OnInit {
     if (this.resultado) return;
     if (this.pregunta.raza == raza) {
       this.resultado = `Ganaste la raza era ${raza}`
+      this.puntos += 1;
     } else {
       this.resultado = `Perdiste, la raza era ${this.pregunta.raza}`
+      this.openForm=true
+      this.puntajeService.CreateScore(this.puntos, 'preguntados')
+      this.puntos = 0;
     }
   }
 }

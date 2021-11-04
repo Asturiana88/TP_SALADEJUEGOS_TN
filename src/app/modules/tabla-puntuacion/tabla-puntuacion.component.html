@@ -1,0 +1,12 @@
+<div class="shadow rounded p-5 mt-5">
+    <h2>Puntajes</h2>
+    <div class="mensajes py-1 border border-info">
+        <div class="mt-4" *ngIf="puntajes$ | async as puntajes">
+            <div *ngFor="let puntaje of puntajes" class="border my-3 rounded shadow-sm px-5 py-2 d-flex justify-content-between align-items-center">
+                <span class="text-warning"> {{puntaje.usuario.email}}: </span>
+                <span class="ml-4 text-muted"> {{puntaje.fecha}}</span>
+                <h3 class="text-primary">{{puntaje.puntos}}</h3>
+            </div>
+        </div>
+    </div>
+</div>

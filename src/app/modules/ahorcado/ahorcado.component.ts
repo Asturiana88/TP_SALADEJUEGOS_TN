@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { PuntajeService } from 'src/app/servicios/puntaje.service';
 
 const CANTIDAD_INTENTOS_FALLIDOS = 5;
 
@@ -20,8 +21,9 @@ export class AhorcadoComponent implements OnInit {
   letrasElegidas:string[]=[]
   juegoTerminado = false;
   intentos = CANTIDAD_INTENTOS_FALLIDOS
+  openForm = false;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private puntajeService: PuntajeService) { }
 
   ngOnInit(): void {
     this.http.get('assets/diccionario.txt',{ responseType: 'text' })
@@ -70,7 +72,13 @@ export class AhorcadoComponent implements OnInit {
       this.gano()
       ) {
         this.juegoTerminado = true
+        this.openForm = true
+        this.puntajeService.CreateScore(this.intentos * 5, 'ahorcado')
     }
+  }
+
+  handleClose(value: any){
+    this.openForm = false;
   }
 
 }

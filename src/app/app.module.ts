@@ -10,7 +10,7 @@ import { QuienSoyComponent } from './componentes/quien-soy/quien-soy.component';
 import { MenuPrincipalComponent } from './componentes/menu-principal/menu-principal.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestore, AngularFirestoreModule } from "@angular/fire/compat/firestore";
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegistroComponent } from './componentes/registro/registro.component';
 import { ChatComponent } from './componentes/chat/chat.component';
 
@@ -29,7 +29,8 @@ import { ChatComponent } from './componentes/chat/chat.component';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]

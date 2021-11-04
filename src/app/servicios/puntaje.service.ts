@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Observable } from 'rxjs';
 import { Puntaje } from '../clases/puntaje';
 import { AuthService } from './autenticacion.service';
 
@@ -11,6 +12,12 @@ export class PuntajeService {
   rutaDeLaColeccion = 'puntajejuegos_';
 
   constructor(private bd: AngularFirestore, private authService: AuthService) {}
+
+  
+  GetScores(juego:string): Observable<any[]> {
+    const collection = this.bd.collection(this.rutaDeLaColeccion+juego, ref => ref.orderBy('puntos','desc'))
+    return collection.valueChanges()
+  }
 
   CreateScore(puntos: number, juego: string): any {
     const puntaje = new Puntaje();

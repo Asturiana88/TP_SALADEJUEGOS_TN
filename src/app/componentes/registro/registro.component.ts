@@ -10,6 +10,7 @@ export class RegistroComponent implements OnInit {
 
   email!: string;
   password!: string;
+  isAdmin!: boolean;
   authService?: AuthService;
   singUpError?: any;
 
@@ -21,7 +22,7 @@ export class RegistroComponent implements OnInit {
   }
 
   register() {
-    this.authService?.SignUp(this.email, this.password)
+    this.authService?.SignUp(this.email, this.password, this.isAdmin)
       .then(res => console.log(res))
       .catch((error: any) => {
         this.singUpError = error;

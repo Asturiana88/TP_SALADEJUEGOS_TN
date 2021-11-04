@@ -1,0 +1,54 @@
+    <div class="modal-wrapper">
+        <div class="modal-container p-5">
+            <form (ngSubmit)="handleSubmit()" [formGroup]="formGroup">
+                <h1>Juego terminado</h1>
+                <div class="row mt-5">
+                    <div class="col-12">
+                        <input type="text" id="nombre" minlength="4" [(ngModel)]="formData.nombre" required formControlName="nombre">
+
+                        <div *ngIf="formGroup.controls.nombre?.invalid && (formGroup.controls.nombre?.dirty || formGroup.controls.nombre?.touched)"
+                            class="alert alert-danger mt-2">
+                            <div *ngIf="formGroup.controls.nombre?.errors?.min">
+                                El nombre es muy corto
+                            </div>
+                            <div *ngIf="formGroup.controls.nombre?.errors?.required">
+                                El nombre es requerido
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 mt-3">
+                        <input type="number" id="telefono" [(ngModel)]="formData.telefono" required formControlName="telefono">
+
+                        <div *ngIf="formGroup.controls.telefono?.invalid && formGroup.controls.telefono?.touched"
+                            class="alert alert-danger mt-2">
+                            <div *ngIf="formGroup.controls.telefono?.errors?.min">
+                                El telefono es invalido
+                            </div>
+                            <div *ngIf="formGroup.controls.telefono?.errors?.required">
+                                El telefono es requerido
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 mt-3">
+                        <input type="number" id="edad" [(ngModel)]="formData.edad" required formControlName="edad">
+
+                        <div *ngIf="formGroup.controls.edad?.invalid && (formGroup.controls.edad?.dirty || formGroup.controls.edad?.touched)"
+                            class="alert alert-danger mt-2">
+                            <div *ngIf="formGroup.controls.edad?.errors?.min">
+                                La edad minima es 18
+                            </div>
+                            <div *ngIf="formGroup.controls.edad?.errors?.required">
+                                La edad es requerida
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 mt-4">
+                        <button [disabled]="formGroup.status !== 'VALID'" type="submit" class="btn btn-primary w-100">Enviar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>

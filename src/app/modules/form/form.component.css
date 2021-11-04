@@ -1,0 +1,31 @@
+.modal-wrapper {
+  display: flex;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+  top: 0;
+  left: 0;
+}
+
+.modal-container {
+  min-width: 500px;
+  min-height: 500px;
+  background-color: white;
+  z-index: 3;
+}
+
+.modal-wrapper::before {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.178);
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  overflow: hidden;
+}

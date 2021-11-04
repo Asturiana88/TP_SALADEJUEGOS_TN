@@ -3,6 +3,10 @@
         <h1>
             <span class="text-primary">Preguntados:</span> adivina la raza
         </h1>
+
+        <h3>
+            Puntuacion: <span class="text-primary">{{puntos}}</span>
+        </h3>
     </div>
     <ng-container *ngIf="pregunta">
         <div class="col-6">
@@ -28,4 +32,8 @@
             </div>
         </div>
     </ng-container>
+    <app-form *ngIf="openForm" (closeHandler)="handleClose($event)" [juego]="'preguntados'"></app-form>
+    <div class="col-12">
+        <app-tabla-puntuacion [juego]="'preguntados'"></app-tabla-puntuacion>
+    </div>
 </div>
